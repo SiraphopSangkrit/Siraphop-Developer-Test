@@ -3,6 +3,8 @@ import BrandSelect from "./BrandSelect.vue";
 import ProductSelect from "./ProductSelect.vue";
 import SubmitButton from "./SubmitButton.vue";
 
+
+
 </script>
 <template>
     <div class="max-w-7xl mx-auto bg-blue-100 p-5 rounded-md">

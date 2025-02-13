@@ -1,9 +1,14 @@
 <script setup>
 import MainLayout from "@/Layouts/MainLayout.vue";
-
-
-import { ref,computed } from "vue";
+import Breadcrumb from "@/Components/Breadcrumb.vue";
 import SubmitButton from "@/Components/SubmitButton.vue";
+import { ref,computed } from "vue";
+const breadcrumbItems = [
+    { name: "หน้าหลัก", href: "/" },
+    { name: "สินค้าใหม่", href: "/new-products" },
+    { name: "อุปกรณ์สินค้า", href: null },
+];
+
 
 const selectedBrand = ref('');
 const selectedProduct = ref('');
@@ -27,10 +32,11 @@ const filterProducts = async () => {
 };
 
 const props = defineProps(["products", "brands"]);
-
 </script>
 <template>
     <MainLayout>
+        <Breadcrumb :items="breadcrumbItems" class="mb-4" />
+
         <div
             class="max-w-7xl mx-auto bg-blue-100 p-5 rounded-md hidden lg:block"
         >

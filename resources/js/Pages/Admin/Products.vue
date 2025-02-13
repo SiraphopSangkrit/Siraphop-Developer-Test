@@ -69,6 +69,7 @@ const uploadImages = () => {
         {
             onSuccess: () => {
                 handleClose();
+
                 Toast.fire({
                     icon: "success",
                     title: "เพิ่มรูปสินค้าสำเร็จ",
@@ -155,6 +156,7 @@ const ProductCreate = () => {
     createProductForm.post(route("admin.products.create"), {
         onSuccess: () => {
             handleClose();
+            createProductForm.reset();
             Toast.fire({
                 icon: "success",
                 title: "เพิ่มข้อมูลสินค้าสำเร็จ",
@@ -288,7 +290,7 @@ console.log(props.products);
                                 @click="OpenImgModal(product)"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                             >
-                                Edit
+                                ดูรูป
                             </button>
                         </td>
                         <td class="px-6 py-4 text-right space-x-2">
@@ -438,7 +440,7 @@ console.log(props.products);
                                 v-model="createProductForm.price"
                                 type="number"
                                 min="0"
-                                max="1000"
+                                max="1000000"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="ราคาสินค้า"
                                 required
@@ -627,7 +629,7 @@ console.log(props.products);
                                 v-model="editProductForm.price"
                                 type="number"
                                 min="0"
-                                max="1000"
+                                max="1000000"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="ราคาสินค้า"
                                 required
@@ -759,7 +761,7 @@ console.log(props.products);
 
                 <div class="mt-3">
                     <form @submit.prevent="uploadImages">
-                        <input type="file"  @input="imageForm.image = $event.target.files[0]" />
+                        <input type="file"  @input="imageForm.image = $event.target.files[0]"  accept="image/png, image/jpeg" />
                         <InputError class="mt-2" :message="imageForm.errors.image" />
                         <button
                             type="submit"

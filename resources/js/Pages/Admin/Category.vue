@@ -43,6 +43,7 @@ const CategoryCreate = () => {
     createCategoryForm.post(route('admin.category.create'), {
         onSuccess: () => {
             handleClose();
+            createCategoryForm.reset();
             Toast.fire({
                 icon: "success",
                 title: "เพิ่มข้อมูลประเภทสินค้าสำเร็จ"

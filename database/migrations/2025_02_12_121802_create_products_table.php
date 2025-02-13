@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('product_model');
             $table->text('product_description');
-            $table->decimal('price');
+            $table->integer('price');
             $table->boolean('product_status')->default(true);;
             $table->timestamps();
         });

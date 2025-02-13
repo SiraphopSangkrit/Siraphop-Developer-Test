@@ -8,12 +8,33 @@ use App\Http\Controllers\Controller;
 use App\Models\Products;
 use App\Models\Product_Desc;
 use App\Models\Product_Pics;
+
+use App\Models\Brands;
 use Illuminate\Support\Facades\Storage;
 
 
 class ProductsController extends Controller
 {
 
+
+    public function ProductLists()
+    {
+        $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->get();
+        $brands = Brands::all();
+        return Inertia::render('Products', [
+            'brands' => $brands,
+            'products' => $products,
+        ]);
+    }
+
+    public function getProductsByBrand($brandId)
+    {
+        $products = Products::with('product_desc', 'product_pics', 'category')
+            ->where('brand_id', $brandId)
+            ->get();
+
+        return response()->json($products);
+    }
     public function ProductDetails()
     {
         return Inertia::render('ProductDetail');

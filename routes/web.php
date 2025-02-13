@@ -8,17 +8,31 @@ use App\Http\Controllers\BrandController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Products;
+use App\Models\Brands;
 
 Route::get('/', function () {
-    return Inertia::render('main');
+    $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->get();
+    $brands = Brands::all();
+    return Inertia::render('main',[
+        'products' => $products,
+        'brands' => $brands,
+    ]);
 });
 
 Route::get('/new-products', function () {
-    return Inertia::render('NewProduct');
+    $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->get();
+    $brands = Brands::all();
+    return Inertia::render('NewProduct',[
+        'products' => $products,
+        'brands' => $brands,
+    ]);
 });
 
+Route::get('/products',[ProductsController::class, 'ProductLists'])->name('products');
 Route::get('/product-details',[ProductsController::class, 'ProductDetails'])->name('product-details');
-
+Route::get('/products/by-brand/{brandId}', [ProductsController::class, 'getProductsByBrand'])
+    ->name('products.by-brand');
 
 
 Route::middleware('auth')->group(function () {

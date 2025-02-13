@@ -133,12 +133,12 @@ onUnmounted(() => {
                                                 >
                                                 <Link
                                                     :href="
-                                                        route('product-details')
+                                                        route('products')
                                                     "
                                                     :class="{
                                                         'active bg-blue-500 text-white':
                                                             $page.url ===
-                                                            '/product-details',
+                                                            '/products',
                                                     }"
                                                     class="text-gray-900 font-medium text-sm dark:text-gray-100 p-2 w-full hover:bg-blue-400"
                                                     >อุปกรณ์ไอที</Link
@@ -176,10 +176,10 @@ onUnmounted(() => {
                             </div>
                             <div>
                                 <Link
-                                    :href="route('product-details')"
+                                    :href="route('products')"
                                     :class="{
                                         'active bg-blue-500 text-white':
-                                            $page.url === '/product-details',
+                                            $page.url === '/products',
                                     }"
                                     class="rounded-full text-gray-900 font-medium text-lg dark:text-gray-100 px-5 py-3"
                                     >อุปกรณ์ไอที</Link

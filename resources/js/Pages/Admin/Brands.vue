@@ -41,7 +41,9 @@ const editBrandForm = useForm({
 const brandCreate = () => {
     createBrandForm.post(route('admin.brand.create'), {
         onSuccess: () => {
+
             handleClose();
+            createBrandForm.reset();
             Toast.fire({
                 icon: "success",
                 title: "เพิ่มข้อมูลประเภทสินค้าสำเร็จ"
