@@ -13,6 +13,7 @@ use App\Models\Brands;
 
 Route::get('/', function () {
     $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->get();
+
     $brands = Brands::all();
     return Inertia::render('main',[
         'products' => $products,
@@ -21,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::get('/new-products', function () {
-    $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->get();
+    $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->latest()->get();
     $brands = Brands::all();
     return Inertia::render('NewProduct',[
         'products' => $products,
@@ -30,7 +31,7 @@ Route::get('/new-products', function () {
 });
 
 Route::get('/products',[ProductsController::class, 'ProductLists'])->name('products');
-Route::get('/product-details',[ProductsController::class, 'ProductDetails'])->name('product-details');
+Route::get('/products/{category}/{brand}/{id}',[ProductsController::class, 'ProductDetails'])->name('product-details');
 Route::get('/products/by-brand/{brandId}', [ProductsController::class, 'getProductsByBrand'])
     ->name('products.by-brand');
 

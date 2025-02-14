@@ -1,0 +1,136 @@
+
+	[
+		{
+			"id": 1,
+			"product_id": 1,
+			"title": "Backed by science",
+			"description": "The integrated pomodoro timer leverages a scientifically proven work/rest methodology that is adaptable to any workflow – empowering you to accomplish more in less time."
+
+		},
+		{
+			"id": 2,
+			"product_id": 1,
+			"title": "Mechanical & hotswap",
+			"description": "We redesigned our custom keycaps to hug your fingertips even more perfectly than before. Mounted on our custom tuned “Atomic” MX Gateron hotswap switches, so you can try different switches without needing to desolder them."
+
+		},
+		{
+			"id": 3,
+			"product_id": 2,
+			"title": "When “more” is better",
+			"description": "Command all your shortcuts, regardless of the software, via 4 discrete mappable layers.\n\nThat’s a total of 48 keys and 8 dial functions ready to help you tackle your next project!"
+
+		},
+		{
+			"id": 4,
+			"product_id": 2,
+			"title": "Presets to riff on",
+			"description": "Not sure which shortcuts to map first? We’ve got you covered with presets to jump start your workflow!\n\nJust wait until you try undo/redo on a dial – life changing 😌"
+
+		},
+		{
+			"id": 5,
+			"product_id": 2,
+			"title": "Just the way you like",
+			"description": "Our new work. Together keyset comes with 30 uniquely Figma icons and 15 solid colors so you can create the perfect look and layout for your setup."
+
+		},
+		{
+			"id": 6,
+			"product_id": 3,
+			"title": "Low profile, high productivity",
+			"description": "Connectivity:\nType-C / Bluetooth\nMac, Pc, Linux & iOS devices\n\nLanguage:\nANSI layout: US\nISO layout: UK/IT/DE/ES/FR/NR"
+
+		},
+		{
+			"id": 7,
+			"product_id": 3,
+			"title": "Pixel perfect crispy display",
+			"description": "A 100x310px full color screen with customizable software features.\n\nTimer / Custom Wallpapers / More to come"
+
+		},
+		{
+			"id": 8,
+			"product_id": 4,
+			"title": "Harness the power of your inner short-cut ninja",
+			"description": "Blaze through design iterations by easily assigning a completely custom keyboard layout for your short-cuts and macros, or modify an existing default layout for any of our supported software."
+
+		},
+		{
+			"id": 9,
+			"product_id": 4,
+			"title": "Stay focused and never look away anymore",
+			"description": "Give a spin to one of the encoders to enter a new way of using quick commands.\n\nUse them for zooming, change brush size, scroll your history, change a color grade on-the-go or to control your media setup."
+
+		},
+		{
+			"id": 10,
+			"product_id": 4,
+			"title": "Modular grid system",
+			"description": "The Creator Board is composed of 3 primary boards: Work board, Nano pad, and Loop pad, which all bring different levels of utility to your workflow.\n\nThanks to the modular grid system of the base plate, you can arrange and add new component in the way that fits you best."
+
+		},
+		{
+			"id": 11,
+			"product_id": 5,
+			"title": "Switches",
+			"description": "Kailh™ Choc low profile (soldered)\nRed linear (silent)\nUse case: work & gaming"
+
+		},
+		{
+			"id": 12,
+			"product_id": 5,
+			"title": "Compatibility",
+			"description": "Mac, iOS, Win, Linux, Android"
+
+		},
+		{
+			"id": 13,
+			"product_id": 6,
+			"title": "SUPERIOR ERGONOMIC SUPPORT",
+			"description": "The soft, cushioned wrist rest perfectly aligns to the keyboard to relieve pressure on your wrists, providing superior comfort and support so you’ll feel less strain over long periods of typing."
+
+		},
+		{
+			"id": 14,
+			"product_id": 6,
+			"title": "POWER THROUGH LONG HOURS OF WORK",
+			"description": "3 Modes – Wired / Bluetooth / 2.4GHz"
+
+		},
+		{
+			"id": 15,
+			"product_id": 6,
+			"title": "RAZER™ HYPERSPEED WIRELESS",
+			"description": "Powered by industry-leading wireless technology, enjoy fast, reliable performance that gives you more work freedom and efficiency while keeping your workspace clean and cable-free. With a wireless dongle designed to connect both your wireless mouse and keyboard, you can streamline your setup even further and free up a USB port on your PC or laptop for other devices."
+
+		},
+		{
+			"id": 16,
+			"product_id": 7,
+			"title": "Ultra compact.",
+			"description": "By stretching size and performance beyond reasonable limits, Devialet engineers have brought to life Phantom II: the only ultra-compact home sound system capable of delivering high fidelity and physical impact, whatever the volume."
+
+		},
+		{
+			"id": 18,
+			"product_id": 9,
+			"title": "Revolutionary circuit",
+			"description": "The gold-sputtered 1\" true condenser capsule comes with a cardioid pattern and is powered by a revolutionary circuit for premium sound quality."
+
+		},
+		{
+			"id": 19,
+			"product_id": 9,
+			"title": "Optimized for vocals",
+			"description": "This high-end studio microphone was holistically designed so you can deliver your best vocal performance with a sound that inspires."
+
+		},
+		{
+			"id": 20,
+			"product_id": 9,
+			"title": "Ultra-low self-noise",
+			"description": "The puristic signal path is completely free from semiconductors and capacitors to achieve an ultra-low noise floor of only 7 dB (A)."
+		}
+	]
+

@@ -1,0 +1,90 @@
+
+	[
+		{
+			"product_id": 1,
+			"brand_id": 1,
+			"category_id": 1,
+			"product_model": "Nomad [E]",
+			"product_description": "Know Productivity - Efficiency - Passion - Creativity with no limits. A crisp IPS display boasts everything from pomodoro timer, to a playful Tamagotchi-style companion, a trusty clock and much more.",
+			"price": 11799
+
+		},
+		{
+			"product_id": 2,
+			"brand_id": 1,
+			"category_id": 1,
+			"product_model": "Figma Creator Micro",
+			"product_description": "Build your muscle memory faster, with all your shortcuts in one place.\n\nMap pretty much anything to the dials/keys for easy access to things like font size, shapes, send to back/front, zoom, and much more…",
+			"price": 5375
+
+		},
+		{
+			"product_id": 3,
+			"brand_id": 1,
+			"category_id": 1,
+			"product_model": "Knob1",
+			"product_description": "Full CNC\nhigh grade build\nBuilt with an aluminum top and bottom shell for maximum durability.\n\nThe k•no•b•1 have uniquely designed keycaps mounted on custom tuned MX Gateron hotswap switches and two multi-function knobs.",
+			"price": 14999
+
+
+		},
+		{
+			"product_id": 4,
+			"brand_id": 1,
+			"category_id": 1,
+			"product_model": "Creator Board",
+			"product_description": "Whether you are an illustrator, 3D designer, photographer, developer, or streamer you need tools that augment your creativity, and help you realize your vision.\n\nWe built the only keyboard that adapts to you.",
+			"price": 13828
+
+
+		},
+		{
+			"product_id": 5,
+			"brand_id": 1,
+			"category_id": 1,
+			"product_model": "Creator Board XL",
+			"product_description": "Material: PC shell / CNC Aluminium bottom\nCaps : ABS \n2x touch sensors\n1x rotary encoder\n1x scroll encoder\nBacklight: RGB\nUnderglow: RGB\nUSB type-C",
+			"price": 18900
+
+
+		},
+		{
+			"product_id": 6,
+			"brand_id": 2,
+			"category_id": 1,
+			"product_model": "PRO TYPE ULTRA",
+			"product_description": "This ergonomically designed keyboard is high on comfort and features keycaps lined with a fingerprint-resistant, soft-touch coating—for a luxurious, cushioned feel that makes typing a joy.",
+			"price": 5599
+
+
+		},
+		{
+			"product_id": 7,
+			"brand_id": 3,
+			"category_id": 2,
+			"product_model": "Phantom II",
+			"product_description": "Exceptional things really do come in small packages. Phantom II is the first home speaker designed to take you deeper into sound. A most intense concentration of advanced technology delivering audiophile-grade playback. Find out what you're both capable of.",
+			"price": 50642
+
+
+		},
+		{
+			"product_id": 8,
+			"brand_id": 4,
+			"category_id": 3,
+			"product_model": "QuietComfort Ultra",
+			"product_description": "World-class noise cancellation, quieter than ever before. Breakthrough spatialized audio for immersive listening, no matter the content or source. Elevated design and luxe materials for unrivaled comfort. It’s everything music makes you feel taken to new highs. Bose Immersive Audio pushes the boundary of what it means to listen by taking what you’re hearing out of your head and placing it in front of you. Sound just got real.",
+			"price": 15900
+
+
+		},
+		{
+			"product_id": 9,
+			"brand_id": 5,
+			"category_id": 4,
+			"product_model": "Pure Tube",
+			"product_description": "Upgrade to premium sound quality. Add warmth and depth with silky-smooth high-end to your vocals and get premium sound, unlike any other microphone classic",
+			"price": 43999
+
+		}
+	]

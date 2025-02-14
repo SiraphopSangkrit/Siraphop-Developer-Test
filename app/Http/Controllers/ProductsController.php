@@ -20,6 +20,7 @@ class ProductsController extends Controller
     public function ProductLists()
     {
         $products = Products::with('product_desc', 'product_pics', 'brands', 'category')->get();
+
         $brands = Brands::all();
         return Inertia::render('Products', [
             'brands' => $brands,
@@ -29,15 +30,39 @@ class ProductsController extends Controller
 
     public function getProductsByBrand($brandId)
     {
-        $products = Products::with('product_desc', 'product_pics', 'category')
+        $products = Products::with('product_desc', 'product_pics', 'category','brands')
             ->where('brand_id', $brandId)
             ->get();
 
         return response()->json($products);
     }
-    public function ProductDetails()
+    public function ProductDetails(Request $request)
     {
-        return Inertia::render('ProductDetail');
+
+        $product_id = $request->id;
+        $product = Products::where('product_id',$product_id)->with('brands','category','product_desc', 'product_pics')->first();
+
+        $relatedProducts = Products::with(['category', 'brands', 'product_pics'])
+        ->where('brand_id', $product->brand_id)
+        ->where('product_id', '!=', $product_id)
+        ->take(5)
+        ->get();
+
+        $randomProducts = Products::with(['product_desc', 'product_pics', 'category', 'brands'])
+        ->where('brand_id','!=', $product->brand_id)
+        ->where('product_id', '!=', $product_id)
+        ->inRandomOrder()
+        ->take(10)
+        ->get();
+
+
+        $brands = Brands::all();
+        return Inertia::render('ProductDetail', [
+            'randomProducts'=>$randomProducts,
+            'relatedProducts' =>$relatedProducts,
+            'brands' => $brands,
+            'product' => $product,
+        ]);
     }
 
     public function CreateProducts(Request $request)
@@ -46,7 +71,6 @@ class ProductsController extends Controller
 
         $request->validate(
             [
-                'product_name' => 'required|unique:products',
                 'price' => 'required|numeric',
                 'product_description' => 'required',
                 'category_id' => 'required',
@@ -55,8 +79,7 @@ class ProductsController extends Controller
 
             ],
             [
-                'product_name.required' => 'กรณาใส่ชื่อประเภทสินค้า',
-                'product_name.unique' => 'ชื่อสินค้าซ้ำ',
+
                 'price.required' => 'กรุณาใส่ราคาสินค้า',
                 'price.numeric' => 'ราคาสินค้าจะต้องเป็นตัวเลข',
                 'product_description.required' => 'กรุณาใส่รายละเอียดสินค้า',
@@ -69,7 +92,6 @@ class ProductsController extends Controller
 
 
         $product = new Products;
-        $product->product_name = $request->product_name;
         $product->price = $request->price;
         $product->product_description = $request->product_description;
         $product->category_id = $request->category_id;
@@ -96,19 +118,16 @@ class ProductsController extends Controller
     {
         $request->validate(
             [
-                'product_name' => 'required|unique:products',
+
                 'price' => 'required|numeric',
-                'product_description' => 'required',
                 'category_id' => 'required',
                 'brand_id' => 'required',
                 'product_model' => 'required'
             ],
             [
-                'product_name.required' => 'กรณาใส่ชื่อประเภทสินค้า',
-                'product_name.unique' => 'ชื่อสินค้าซ้ำ',
+
                 'price.required' => 'กรุณาใส่ราคาสินค้า',
                 'price.numeric' => 'ราคาสินค้าจะต้องเป็นตัวเลข',
-                'product_description.required' => 'กรุณาใส่รายละเอียดสินค้า',
                 'category_id.required' => 'กรุณาเลือกประเภทสินค้า',
                 'brand_id.required' => 'กรุณาเลือกแบรนด์สินค้า',
                 'product_model.required' => 'กรุณาใส่รุ่นสินค้า'
@@ -117,7 +136,7 @@ class ProductsController extends Controller
 
         $product = Products::find($id);
 
-        $product->product_name = $request->product_name;
+
         $product->price = $request->price;
         $product->product_description = $request->product_description;
         $product->category_id = $request->category_id;
@@ -126,6 +145,7 @@ class ProductsController extends Controller
         $product->save();
 
         $product_desc = $request->desc;
+
 
         foreach ($product_desc as $desc) {
             if (isset($desc['id'])) {
@@ -164,7 +184,7 @@ class ProductsController extends Controller
     public function addProductPictures(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048' // Validate each image
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp' // Validate each image
         ], [
             'image.required' => 'กรุณาใส่รูปสินค้า.',
         ]);

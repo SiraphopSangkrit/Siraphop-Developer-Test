@@ -74,14 +74,7 @@ import ApplicationLogo from './ApplicationLogo.vue';
                     <span class="ms-3 font-semibold">หน้าเว็บไซต์</span>
                     </Link>
                 </li>
-                <li>
-                    <Link :href="route('admin.dashboard')"  :class="{ 'active bg-gray-200 ' : $page.url === '/admin'}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ">
-                    <span class="ms-3 font-semibold">แดชบอร์ด</span>
-                    </Link>
-                </li>
-
-
+               
                 <li>
                     <Link :href="route('admin.products')"  :class="{ 'active bg-gray-200 ' :$page.url === '/admin/products'}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">

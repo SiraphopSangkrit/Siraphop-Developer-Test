@@ -6,14 +6,16 @@ import { ref } from "vue";
 import Modal from "@/Components/Modal.vue";
 import Swal from "sweetalert2";
 import InputError from "@/Components/InputError.vue";
-
+import {formatPrice} from "@/utility/currency-fotmat.js"
 const CreateModal = ref(false);
 const EditModal = ref(false);
 
 const ImgModal = ref(false);
 const currentImage = ref(null);
 
-
+const getFormattedPrice = (price) => {
+    return formatPrice(price);
+};
 
 const OpenImgModal = (product) => {
     currentImage.value = product.product_pics;
@@ -253,7 +255,6 @@ console.log(props.products);
                     class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
                 >
                     <tr>
-                        <th scope="col" class="px-6 py-3">Product name</th>
                         <th scope="col" class="px-6 py-3">Model</th>
                         <th scope="col" class="px-6 py-3">Price</th>
                         <th scope="col" class="px-6 py-3">Brand</th>
@@ -274,10 +275,9 @@ console.log(props.products);
                             scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                            {{ product.product_name }}
+                        {{ product.product_model }}
                         </th>
-                        <td class="px-6 py-4">{{ product.product_model }}</td>
-                        <td class="px-6 py-4">{{ product.price }}</td>
+                        <td class="px-6 py-4">{{ getFormattedPrice(product.price) }} บาท</td>
                         <td class="px-6 py-4">
                             {{ product.brands.brand_name }}
                         </td>
@@ -346,24 +346,8 @@ console.log(props.products);
             <div class="p-4 md:p-5">
                 <form class="space-y-4" @submit.prevent="ProductCreate">
                     <div class="flex">
-                        <div class="w-full mx-2 basis-2/3">
-                            <label
-                                class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
-                                >ชื่อสินค้า</label
-                            >
-                            <input
-                                type="text"
-                                v-model="createProductForm.product_name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="ชื่อสินค้า"
-                                required
-                            />
-                            <InputError
-                                class="mt-2"
-                                :message="createProductForm.errors.product_name"
-                            />
-                        </div>
-                        <div class="w-full mx-2 basis-1/3">
+
+                        <div class="w-full mx-2">
                             <label
                                 class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                                 >รุ่นสินค้า</label
@@ -404,7 +388,7 @@ console.log(props.products);
                                     {{ brand.brand_name }}
                                 </option>
                             </select>
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="createProductForm.errors.brand_id" />
                         </div>
                         <div class="w-full mx-2">
                             <label
@@ -428,7 +412,7 @@ console.log(props.products);
                             </select>
                             <InputError
                                 class="mt-2"
-                                :message="createProductForm.errors.product_"
+                                :message="createProductForm.errors.category_id"
                             />
                         </div>
                         <div class="w-full mx-2">
@@ -445,7 +429,7 @@ console.log(props.products);
                                 placeholder="ราคาสินค้า"
                                 required
                             />
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="createProductForm.errors.price" />
                         </div>
                     </div>
                     <div class="flex">
@@ -462,7 +446,7 @@ console.log(props.products);
                                 placeholder="รายละเอียดสินค้า"
                                 required
                             ></textarea>
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="createProductForm.errors.product_description"/>
                         </div>
                     </div>
 
@@ -546,21 +530,8 @@ console.log(props.products);
             <div class="p-4 md:p-5">
                 <form class="space-y-4" @submit.prevent="ProductUpdate">
                     <div class="flex">
-                        <div class="w-full mx-2 basis-2/3">
-                            <label
-                                class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
-                                >ชื่อสินค้า</label
-                            >
-                            <input
-                                type="text"
-                                v-model="editProductForm.product_name"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="ชื่อสินค้า"
-                                required
-                            />
-                            <InputError class="mt-2" />
-                        </div>
-                        <div class="w-full mx-2 basis-1/3">
+
+                        <div class="w-full mx-2 ">
                             <label
                                 class="block mb-2 text-base font-medium text-gray-900 dark:text-white"
                                 >รุ่นสินค้า</label
@@ -572,7 +543,7 @@ console.log(props.products);
                                 placeholder="รุ่นสินค้า"
                                 required
                             />
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="editProductForm.errors.product_model"/>
                         </div>
                     </div>
                     <div class="flex">
@@ -596,7 +567,7 @@ console.log(props.products);
                                     {{ brand.brand_name }}
                                 </option>
                             </select>
-                            <InputError class="mt-2"  />
+                            <InputError class="mt-2"  :message="editProductForm.errors.brand_id"/>
                         </div>
                         <div class="w-full mx-2">
                             <label
@@ -618,7 +589,7 @@ console.log(props.products);
                                     {{ category.category_name }}
                                 </option>
                             </select>
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="editProductForm.errors.category_id"/>
                         </div>
                         <div class="w-full mx-2">
                             <label
@@ -634,7 +605,7 @@ console.log(props.products);
                                 placeholder="ราคาสินค้า"
                                 required
                             />
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="editProductForm.errors.price"/>
                         </div>
                     </div>
                     <div class="flex">
@@ -651,7 +622,7 @@ console.log(props.products);
                                 placeholder="รายละเอียดสินค้า"
                                 required
                             ></textarea>
-                            <InputError class="mt-2" />
+                            <InputError class="mt-2" :message="editProductForm.errors.product_description"/>
                         </div>
                     </div>
                     <div class="space-y-4">
@@ -735,7 +706,7 @@ console.log(props.products);
             <div class="p-4 md:p-5">
                 <section
                     id="Projects"
-                    class="w-fit mx-auto grid lg:grid-cols-4 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
+                    class="w-fit mx-auto grid lg:grid-cols-4 md:grid-cols-3 justify-items-center justify-center gap-y-5 gap-x-5 mt-10 mb-5"
                 >
                     <div v-for="(image, index) in currentImage" :key="index">
                         <div
@@ -761,7 +732,7 @@ console.log(props.products);
 
                 <div class="mt-3">
                     <form @submit.prevent="uploadImages">
-                        <input type="file"  @input="imageForm.image = $event.target.files[0]"  accept="image/png, image/jpeg" />
+                        <input type="file"  @input="imageForm.image = $event.target.files[0]"  accept="image/png, image/jpeg ,image/webp" />
                         <InputError class="mt-2" :message="imageForm.errors.image" />
                         <button
                             type="submit"

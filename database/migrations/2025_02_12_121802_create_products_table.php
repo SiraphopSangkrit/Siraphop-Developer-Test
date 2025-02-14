@@ -17,9 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('brand_id')->references('brand_id')->on('brands')->onDelete('cascade');
             $table->foreign('category_id')->references('category_id')->on('category')->onDelete('cascade');
-            $table->string('product_name');
             $table->string('product_model');
-            $table->text('product_description');
+            $table->text('product_description')->nullable();
             $table->integer('price');
             $table->boolean('product_status')->default(true);;
             $table->timestamps();
@@ -34,3 +33,4 @@ return new class extends Migration
         Schema::dropIfExists('products');
     }
 };
+

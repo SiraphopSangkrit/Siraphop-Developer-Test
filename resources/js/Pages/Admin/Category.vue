@@ -147,7 +147,7 @@ const props = defineProps(['categories']);
                 </thead>
                 <tbody>
                     <tr v-for="category in categories" :key="category.category_id"
-                        class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600"
+                        class="bg-white border-b dark:bg-gray-800 border-gray-200  hover:bg-gray-50 dark:hover:bg-gray-600"
                     >
                         <th
                             scope="row"
