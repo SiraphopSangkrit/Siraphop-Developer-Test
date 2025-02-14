@@ -105,66 +105,6 @@ const hasProductImages = computed(() => {
 
 </script>
 <style>
-.embla {
-    --slide-spacing: 1rem;
-    --slide-size: 100%;
-    --slide-height: 19rem;
-}
-
-.embla__container {
-    backface-visibility: hidden;
-    display: flex;
-    touch-action: pan-y;
-    margin-left: calc(var(--slide-spacing) * -1);
-}
-
-.embla__slide {
-    flex: 0 0 var(--slide-size);
-    min-width: 0;
-    padding-left: var(--slide-spacing);
-    position: relative;
-}
-
-@media (min-width: 768px) {
-    .embla {
-        --slide-size: 50%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .embla {
-        --slide-size: 33.33%;
-    }
-}
-
-/* Optional: Add smooth scrolling */
-.embla__container {
-    scroll-behavior: smooth;
-}
-
-/* Optional: Add custom navigation buttons */
-.embla__button {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.embla__button--prev {
-    left: 1rem;
-}
-
-.embla__button--next {
-    right: 1rem;
-}
-
 .thumbnail-container {
     display: flex;
     flex-wrap: wrap;

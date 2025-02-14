@@ -184,7 +184,7 @@ class ProductsController extends Controller
     public function addProductPictures(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,webp' // Validate each image
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp'
         ], [
             'image.required' => 'กรุณาใส่รูปสินค้า.',
         ]);
@@ -204,7 +204,7 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
-    public function deleteProductPictures(Request $request, $id)
+    public function deleteProductPictures( $id)
     {
         $picture = Product_Pics::find($id);
         if ($picture) {

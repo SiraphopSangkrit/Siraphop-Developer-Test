@@ -17,17 +17,17 @@ class ProductPicSeeder extends Seeder
      */
     public function run(): void
     {
-        // Get all products
+
         $products = Products::all();
 
-        // Source path where your seed images are stored
+
         $sourcePath = public_path('img');
 
-        // Create storage directory if it doesn't exist
+
         Storage::disk('public')->makeDirectory('products_image');
 
         foreach ($products as $product) {
-            // Get all images for this product
+
             $images = File::glob($sourcePath . "/product{$product->product_id}_*.{jpg,jpeg,png,gif,webp}", GLOB_BRACE);
 
             foreach ($images as $imagePath) {
@@ -40,10 +40,9 @@ class ProductPicSeeder extends Seeder
                     true
                 );
 
-                // Store the image like in addProductPictures method
                 $picture_path = $image->store('products_image', 'public');
 
-                // Create the product picture record
+
                 Product_Pics::create([
                     'product_id' => $product->product_id,
                     'img_url' => $picture_path

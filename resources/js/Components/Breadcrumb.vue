@@ -3,7 +3,6 @@ defineProps({
     items: {
         type: Array,
         required: true,
-        // Expected format: [{name: 'Home', href: '/'}, {name: 'Products', href: '/products'}]
     },
 });
 </script>
@@ -13,7 +12,7 @@ defineProps({
         <ol
             class="inline-flex flex-wrap items-center space-x-1 sm:space-x-2 md:space-x-3 rtl:space-x-reverse"
         >
-        <li
+            <li
                 v-for="(item, index) in items"
                 :key="index"
                 :class="[
@@ -21,7 +20,6 @@ defineProps({
                     { 'text-gray-500': index === items.length - 1 },
                 ]"
             >
-                <!-- Home item with icon -->
                 <template v-if="index === 0">
                     <a
                         :href="item.href"
@@ -44,25 +42,23 @@ defineProps({
                         >
                     </a>
                 </template>
-
-                <!-- Middle items -->
                 <template v-else>
                     <div class="flex items-center flex-wrap">
                         <svg
-              class="rtl:rotate-180 w-2 h-2 sm:w-3 sm:h-3 text-gray-400 mx-1 sm:mx-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 9 4-4-4-4"
-              />
-            </svg>
+                            class="rtl:rotate-180 w-2 h-2 sm:w-3 sm:h-3 text-gray-400 mx-1 sm:mx-2"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 6 10"
+                        >
+                            <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="m1 9 4-4-4-4"
+                            />
+                        </svg>
                         <template v-if="index === items.length - 1">
                             <span
                                 class="ms-1 text-xs sm:text-sm md:text-base font-medium text-gray-500 md:ms-2 dark:text-gray-400 break-words"

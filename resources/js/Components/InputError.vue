@@ -12,19 +12,19 @@ const visibleMessage = ref(props.message)
 let timeoutId = null
 
 watch(() => props.message, (newMessage) => {
-    // Clear any existing timeout
+
     if (timeoutId) {
         clearTimeout(timeoutId)
     }
 
-    // Always update the message, even if it's the same
+
     visibleMessage.value = newMessage
 
     if (newMessage) {
         timeoutId = setTimeout(() => {
             visibleMessage.value = ''
             timeoutId = null
-        }, 3000) // 3 seconds timeout
+        }, 3000)
     }
 }, { immediate: true })
 </script>
