@@ -21,7 +21,7 @@ class ProductPicSeeder extends Seeder
         $products = Products::all();
 
 
-        $sourcePath = public_path('img');
+        $sourcePath = public_path('seed_images');
 
 
         Storage::disk('public')->makeDirectory('products_image');
