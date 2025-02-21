@@ -14,17 +14,27 @@ class ProductDescSeeder extends Seeder
      */
     public function run(): void
     {
-        $json = File::get("public\productsDesc.json");
-        $products= json_decode($json);
-        foreach ($products  as $key => $value) {
+        $jsonPath = database_path('seeders/data/productsDesc.json');
 
+        // Create directory if it doesn't exist
+        if (!File::exists(dirname($jsonPath))) {
+            File::makeDirectory(dirname($jsonPath), 0755, true);
+        }
+
+        if (!File::exists($jsonPath)) {
+            throw new \Exception("productsDesc.json not found at: {$jsonPath}");
+        }
+
+        $json = File::get($jsonPath);
+        $productsDesc= json_decode($json);
+
+        foreach ($productsDesc as $productDesc) {
             Product_Desc::create([
-                "product_id" => $value->product_id,
-               "title"=>$value->title,
-               "description"=>$value->description,
+                "product_id" => $productDesc->product_id,
+               "title"=>$productDesc->title,
+               "description"=>$productDesc->description,
 
             ]);
-
         }
     }
 }

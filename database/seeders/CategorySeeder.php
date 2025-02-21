@@ -14,14 +14,24 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $json = File::get("public\Category.json");
-        $category= json_decode($json);
-        foreach ($category  as $key => $value) {
+        $jsonPath = database_path('seeders/data/Category.json');
 
+        // Create directory if it doesn't exist
+        if (!File::exists(dirname($jsonPath))) {
+            File::makeDirectory(dirname($jsonPath), 0755, true);
+        }
+
+        if (!File::exists($jsonPath)) {
+            throw new \Exception("Category.json not found at: {$jsonPath}");
+        }
+
+        $json = File::get($jsonPath);
+        $categories = json_decode($json);
+
+        foreach ($categories as $category) {
             Category::create([
-                "category_name" => $value->category_name
+                "category_name" => $category->category_name
             ]);
-
         }
     }
 }
