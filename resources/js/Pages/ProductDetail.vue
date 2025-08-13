@@ -40,7 +40,7 @@ const getFormattedPrice = (price) => {
     return formatPrice(price);
 };
 
-// Modify your Swiper options to include onSlideChange
+
 const onSlideChange = (swiper) => {
     activeIndex.value = swiper.realIndex;
 };
