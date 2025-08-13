@@ -1,7 +1,7 @@
 ## วิธีติดตั้งระบบ 
 
 <br>
-(First you need to install composer, and you need a mysql server that contain a database with name "tpps_database"(don`t forget to change the database credentials in `.env` file))
+(First you need to install composer, and you need a mysql server that contain a database with name "developer_test"(don`t forget to change the database credentials in `.env` file))
 <br><br>
  หากมีphpอยู่แล้ว
 
@@ -38,3 +38,7 @@ php artisan serve
 #แยก Terminal
 #Run NPM 
 npm run dev
+
+Admin Account 
+admin@gmail.com
+Admin1234
